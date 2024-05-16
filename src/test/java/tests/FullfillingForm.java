@@ -15,6 +15,8 @@ static void beforeAll() {
     Configuration.browserSize = "1920x1080";
     Configuration.baseUrl = "https://demoqa.com";
     Configuration.pageLoadStrategy = "eager";
+    executeJavaScript("$('#fixedban').remove()");
+    executeJavaScript("$('footer').remove()");
 }
 
 @Test
@@ -39,9 +41,9 @@ void fillFormTest() {
     $("#subjectsInput").setValue("Math").pressEnter();
 
     //Hobbies
-    $(byText("Sports")).click();
-    $(byText("Reading")).click();
-    $(byText("Music")).click();
+    $("#hobbiesWrapper").$(byText("Sports")).click();
+    $("#hobbiesWrapper").$(byText("Reading")).click();
+    $("#hobbiesWrapper").$(byText("Music")).click();
 
     //File
     $("#uploadPicture").uploadFromClasspath("images.jpg");
