@@ -12,16 +12,17 @@ public class FullfillingForm {
 
 @BeforeAll
 static void beforeAll() {
-    Configuration.browserSize = "1920x1080";
+    Configuration.browserSize = "1280х720";
     Configuration.baseUrl = "https://demoqa.com";
     Configuration.pageLoadStrategy = "eager";
-    executeJavaScript("$('#fixedban').remove()");
-    executeJavaScript("$('footer').remove()");
+
 }
 
 @Test
 void fillFormTest() {
     open("/automation-practice-form");
+    executeJavaScript("$('#fixedban').remove()");
+    executeJavaScript("$('footer').remove()");
 
     $("#firstName").setValue("Pavel");
     $("#lastName").setValue("Volchenkov");
